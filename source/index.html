@@ -7,9 +7,12 @@
     <title>shop</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="./css/shop.css">
+    <script defer src="https://unpkg.com/vue@next"></script>
+    <script defer src="./js/index.js"></script>
+
 </head>
 <body>
-    <article>
+    <article id="app">
         <header>
             <!-- <h3>상품</h3> -->
             <dl>
@@ -18,7 +21,7 @@
                 <dd>
                     <button>장바구니보기 <span>갯수</span></button>
                     <ul>
-                        <li>name : price 원</li>
+                        <li> name : price 원</li>
                     </ul>
                 </dd>
                 <dd>price</dd>
@@ -30,35 +33,42 @@
                 <li>
                     <span>
                         <label for="userMax">최고가격</label>
-                        <input id="userMax" readonly>
+                        <input id="userMax" v-model="max" readonly>
                     </span>
                     <span>
-                        선택상품 갯수: ????
+                        선택상품 갯수: {{filteredProducts.length}}
                     </span>
                 </li>
                 <li>
-                    <input type="range" min="0" max="30000">
+                    <input type="range" min="0" max="30000" v-model="max">
                 </li>
                 <li>
-                    <input type="checkbox" id="userLabel">
+                    <input type="checkbox" id="userLabel" v-model="displayLabel">
                     <label for="userLabel">레벨보기</label>
                 </li>
             </ul>
             <!-- 제품리스트 -->
-            <ul>
-                <li>
+            <ul class="list">
+                <li v-for="(item,index) in filteredProducts" :key="index">
                     <figure>
-                        <img src="./images/product01.png" alt="제품명">
+                        <img :src="item.image" :alt="item.name">
                         <figcaption>
                             <dl>
-                                <dt>title</dt>
-                                <dd>설명</dd>
+                                <dt><!-- title -->
+                                    {{item.name}}</dt>
+                                <dd><!-- 설명 -->
+                                {{item.description}}</dd>
                                 <dd>
-                                    <span class="blue">premier</span>
-                                    <span class="green">value</span>
-                                    <span class="orange">sale</span>
+                                    <span 
+                                    v-if="item.price > 15000 && displayLabel" class="blue">premier</span>
+                                    <span 
+                                    v-else-if="(item.price <= 15000 && item.price > 10000) && displayLabel" class="green">value</span>
+                                    <span
+                                    v-else-if="item.price <= 10000 && displayLabel" 
+                                    class="orange">sale</span>
                                 </dd>
-                                <dd>price????
+                                <dd><!-- price???? -->
+                                    {{won(item.price)}}
                                     원
                                 </dd>
                             </dl>

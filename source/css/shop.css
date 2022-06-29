@@ -1,1 +1,135 @@
 
+body{
+    background-color: #666;
+}
+
+article{
+    width: 1000px;
+    margin: 0 auto;
+    padding: 0 200px;
+    background-color: #fff;
+}
+
+/* header */
+article>header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    padding: 10px 20px;
+    border-bottom: 1px solid #666;
+}
+article>header>dl{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+article>header>dl>dd{}
+article>header>dl>dd>ul{
+    position: absolute;
+    right: 0; top: 45px;
+    z-index: 100;
+    padding: 5px 10px ;
+    border: 1px solid #666;
+    background-color: #fff;
+}
+article>header>dl>dd>ul>li{
+    border-bottom: 1px dotted #666;
+    padding: 10px 0;
+}
+article>header>dl>dd>ul>li:last-child{
+    border-bottom: none;
+}
+
+/* box */
+div#box{
+
+}
+
+#box>ul.from{
+    padding: 30px 0;
+}
+#box>ul.from>li{
+    margin-bottom: 20px;
+}
+#box>ul.from input{
+    border: none;
+    font-size: 25px;
+}
+#box>ul.from input[type="range"]{
+    width: 600px;
+}
+#box>ul.from label{
+    display: inline;
+    padding: 0 20px;
+}
+
+#box>ul.list{
+    padding: 20px 30px;
+}
+#box>ul.list>li{
+    padding: 5px 0;
+    border: 1px dotted #666;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#box>ul.list>li>figure{
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+#box>ul.list>li>figure>img{
+    width: 150px;
+}
+#box>ul.list>li>figure>figcaption{
+    width: 500px;
+    /* background-color: rgb(252, 237, 240); */
+}
+
+#box>ul.list>li>figure dl{
+    padding: 0 20px;
+}
+#box>ul.list>li>figure dl>dt{
+    font-size: 1.5em;
+    padding: 8px 0;
+    border-bottom: 1px dotted #666;
+}
+#box>ul.list>li>figure dl>dd{
+    padding: 5px 0;
+    border-bottom: 1px dotted #666;
+}
+#box>ul.list>li>figure dl>dd:last-child{
+    border-bottom: none;
+}
+#box>ul.list>li>figure dl>dd:nth-of-type(2){
+    padding: 10px 0;
+    text-align: right;
+}
+#box>ul.list>li>figure dl>dd>span{
+    color: #fff;
+    line-height: 35px;
+    padding: 0 10px;
+    border-radius: 4px;
+    display: inline-block;
+}
+#box>ul.list>li>figure dl>dd>span.blue{
+    background-color: rgb(42, 42, 190);
+}
+#box>ul.list>li>figure dl>dd>span.green{
+    background-color: rgb(96, 226, 96);
+}
+#box>ul.list>li>figure dl>dd>span.orange{
+    background-color: rgb(207, 153, 51);
+}
+
+#box>ul.list>li>p{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
