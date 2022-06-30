@@ -36,7 +36,18 @@ article>header>dl>dd>ul{
 article>header>dl>dd>ul>li{
     border-bottom: 1px dotted #666;
     padding: 10px 0;
+    display: flex;
+    align-items: center;
 }
+
+article>header>dl>dd>ul>li>span:first-child>img{
+    width: 50px;
+    margin-right: 20px;
+}
+article>header>dl>dd>ul>li>span:last-child{
+    color: green;
+}
+
 article>header>dl>dd>ul>li:last-child{
     border-bottom: none;
 }

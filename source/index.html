@@ -17,14 +17,19 @@
             <!-- <h3>상품</h3> -->
             <dl>
                 <dt>구매상품</dt>
-                <dd>전체가격 ??? 원</dd>
+                <dd>전체가격 {{won(cartTotal)}} 원</dd>
                 <dd>
-                    <button>장바구니보기 <span>갯수</span></button>
-                    <ul>
-                        <li> name : price 원</li>
+                    <button @click="displayCart=!displayCart">
+                        장바구니보기 <span>{{cart.length}} 개</span></button>
+                    <ul v-if="displayCart">
+                        <li v-for="(item,index) in cart" :key="index">
+                           <span>
+                            <img :src="item.image" :alt="item.mame">
+                           </span>
+                           <span>{{item.name}} : {{won(item.price)}} 원</span>
+                           </li>
                     </ul>
                 </dd>
-                <dd>price</dd>
             </dl>
         </header>
         <div id="box">
@@ -59,8 +64,7 @@
                                 <dd><!-- 설명 -->
                                 {{item.description}}</dd>
                                 <dd>
-                                    <span 
-                                    v-if="item.price > 15000 && displayLabel" class="blue">premier</span>
+                                    <span                                   v-if="item.price > 15000 && displayLabel" class="blue">premier</span>
                                     <span 
                                     v-else-if="(item.price <= 15000 && item.price > 10000) && displayLabel" class="green">value</span>
                                     <span
@@ -76,7 +80,7 @@
                     </figure>
                     <!-- plus -->
                     <p>
-                        <button>+</button>
+                        <button @click="addToCart(item)">+</button>
                     </p>
                 </li>
             </ul>

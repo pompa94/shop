@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const num = [10,20,30,40,50];
+        const all = num.reduce((hap,item,index)=>{return hap += item},0)
+        const all1 = num.reduce((hap,item,index)=>{return hap += item},100)
+        const all2 = num.reduce((hap,item,index)=>{return hap += index},0)
+        const all3 = num.reduce((hap,item,index)=>{return hap -= item},100)
+        console.log(all)
+        console.log(all1)
+        console.log(all2)
+        console.log(all3)
+    </script>
+</body>
+</html>
